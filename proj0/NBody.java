@@ -3,15 +3,9 @@ import java.util.ArrayList;
 
 public class NBody {
     
-    /** Query a double corresponding to the radius of the universe in that file.
-        Args:
-            dir(String): Directory path to txt file.
-        Returns:
-            R(double): Radius of the universe in that file
-    */
+
     public static double readRadius(String dir) {
         In in = new In(dir);
-
         int N = in.readInt();
         double R = in.readDouble();
         return R;
@@ -57,24 +51,6 @@ public class NBody {
         return planet;
     }
 
-
-    // public static Planet[] readPlanets(String dir){
-    //     In in = new In(dir);
-    //     int num = in.readInt();
-    //     in.readDouble();
-    //     Planet[] planets = new Planet[num];
-    //     for (int row = 0; row < num; row++){
-    //         planets[row] = new Planet(in.readDouble(),
-    //                                in.readDouble(),
-    //                                in.readDouble(),
-    //                                in.readDouble(),
-    //                                in.readDouble(),
-    //                                in.readString());
-    //     }
-    //     return planets;
-    // }
-
-
     /** Main function
         Args:
             args[0](double): 0th command line arguments as T. 
@@ -82,7 +58,6 @@ public class NBody {
             args[2](String): txt filename.
     */
     public static void main(String[] args) {
-        // Collect All Needed Input
         double T = Double.parseDouble(args[0]);
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
@@ -94,12 +69,6 @@ public class NBody {
         StdDraw.enableDoubleBuffering();
         StdDraw.setScale(-radius, radius);
         StdDraw.clear();
-        // StdDraw.picture(0, 0, "images/starfield.jpg");
-
-        // // Draw all of the Planets
-        // for (int i = 0; i < planets.length; i++) {
-        //     planets[i].draw();
-        // }
 
         for (int t = 0; t <= T; t += dt) {
             double[] xForces = new double[planets.length];
