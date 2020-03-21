@@ -20,6 +20,21 @@ public class IntListTest {
         assertEquals(threeTwoOne, x);
     }
 
+    @Test(timeout = 1000)
+    public void testReverse() {
+        IntList A = IntList.of(0,1,2,3,4);
+        IntList B = IntList.of(4,3,2,1,0);
+        IntList C = IntList.of(4,3,2,1,0);
+        IntList D = null;
+        /** returns a reversed list*/
+        assertEquals(A, IntList.reverse(B));
+        /** method is destructive*/
+        assertNotEquals(B, C);
+        /** handle a null input properly*/
+        //assertEquals(null, IntList.reverse(D));
+        assertNull(IntList.reverse(D));
+    }
+
     @Test
     public void testdSquareList() {
         IntList L = IntList.of(1, 2, 3);
