@@ -10,7 +10,7 @@ public class LinkedListDeque <T> {
             prev = p;
         }
     }
-    /** the first item (if it exists) is at sentinel.next */
+
     private IntNode sentinel;
     public int size;
 
@@ -38,7 +38,7 @@ public class LinkedListDeque <T> {
 
     public void addLast(T x) {
         // sentinel.prev.next = new IntNode(x, sentinel.prev, sentinel);
-        //       sentinel.prev = sentinel.prev.next;
+        // sentinel.prev = sentinel.prev.next;
         IntNode newnode = new IntNode(x, null, null);
         IntNode temp = sentinel.prev;
         sentinel.prev = newnode;
@@ -49,7 +49,6 @@ public class LinkedListDeque <T> {
     }
 
     public int size() {
-        // return size();
         return size;
     }
 
