@@ -76,7 +76,7 @@ public class ArrayDeque<T> {
         size = size + 1;
     }
 
-    public T getFirst() {
+    private T getFirst() {
         return items[plusOne(nextFirst)];
     }
 
@@ -90,7 +90,7 @@ public class ArrayDeque<T> {
 
     }
 
-    public T getLast() {
+    private T getLast() {
         return items[minusOne(nextLast)];
     }
 
