@@ -95,7 +95,7 @@ public class LinkedListDeque <T> {
     public T get(int index) {
         int length = size;
         IntNode target = sentinel.next;
-        if (index > size - 1) {
+        if (index > length - 1) {
             return null;
         } else {
             for (int i=0; i<index; i++) {
@@ -105,7 +105,24 @@ public class LinkedListDeque <T> {
         return target.item;
     }
 
+    public T getRecursive(int index) {
+        int length = size;
+        if (index > length - 1) {
+            return null;
+        } else {
+            return traverse(sentinel.next, index);
+        }
 
+    }
+
+    public T traverse(IntNode n,int i) {
+        if (i == 0) {
+            return n.item;
+        } else {
+            return traverse(n.next, i - 1);
+        }
+    }
+    
 
     public static void main(String[] args) {
         LinkedListDeque<Integer> L = new LinkedListDeque<>();

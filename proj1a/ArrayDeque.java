@@ -17,6 +17,10 @@ public class ArrayDeque<Item> {
         return size;
     }
 
+    public boolean isEmpty() {
+        return (size == 0 ? true : false);
+    }
+
     public int minusOne(int x) {
         return Math.floorMod(x-1, items.length);
     }
@@ -117,21 +121,19 @@ public class ArrayDeque<Item> {
     }
 
 
-
-
-    public static void main(String[] args) {
-        ArrayDeque<Integer> a = new ArrayDeque<Integer>();
-        for (int i = 0; i < 20; i++) {
-            a.addLast(i);
-        }
-        a.printDeque();
-
-        for (int i = 0; i < 15; i++) {
-            a.removeFirst();
-        }
-
-        a.printDeque();
-        System.out.println(a.get(1));
-    }
+//    public static void main(String[] args) {
+//        ArrayDeque<Integer> a = new ArrayDeque<Integer>();
+//        for (int i = 0; i < 20; i++) {
+//            a.addLast(i);
+//        }
+//        a.printDeque();
+//
+//        for (int i = 0; i < 15; i++) {
+//            a.removeFirst();
+//        }
+//
+//        a.printDeque();
+//        System.out.println(a.get(1));
+//    }
 
 }
