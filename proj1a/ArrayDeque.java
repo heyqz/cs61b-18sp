@@ -1,12 +1,12 @@
-public class ArrayDeque<Item> {
-    private Item[] items;
+public class ArrayDeque<T> {
+    private T[] items;
     private int nextFirst;
     private int nextLast;
     private int size;
 
     /** Creates an empty list. */
     public ArrayDeque() {
-        items = (Item[]) new Object[8];
+        items = (T[]) new Object[8];
         size = 0;
         nextFirst = 0;
         nextLast = 1;
@@ -21,15 +21,15 @@ public class ArrayDeque<Item> {
         return (size == 0 ? true : false);
     }
 
-    public int minusOne(int x) {
+    private int minusOne(int x) {
         return Math.floorMod(x-1, items.length);
     }
 
-    public int plusOne(int x) {
+    private int plusOne(int x) {
         return Math.floorMod(x+1, items.length);
     }
 
-    public int plusOne(int x, int length) {
+    private int plusOne(int x, int length) {
         return Math.floorMod(x+1, length);
 
     }
@@ -44,10 +44,10 @@ public class ArrayDeque<Item> {
     }
 
     private void resizeHelper(int capacity) {
-        Item[] temp = items;
+        T[] temp = items;
         int begin = plusOne(nextFirst);
         int end = minusOne(nextLast);
-        items = (Item[]) new Object[capacity];
+        items = (T[]) new Object[capacity];
         nextFirst = 0;
         nextLast = 1;
         for (int i = begin; i != end; i = plusOne(i, temp.length)) {
@@ -60,7 +60,7 @@ public class ArrayDeque<Item> {
 
 
 
-    public void addFirst(Item x) {
+    public void addFirst(T x) {
         resize();
         items[nextFirst] = x;
         nextFirst = minusOne(nextFirst);
@@ -68,7 +68,7 @@ public class ArrayDeque<Item> {
     }
 
     /** Inserts X into the back of the list. */
-    public void addLast(Item x) {
+    public void addLast(T x) {
         resize();
 
         items[nextLast] = x;
@@ -76,13 +76,13 @@ public class ArrayDeque<Item> {
         size = size + 1;
     }
 
-    public Item getFirst() {
+    public T getFirst() {
         return items[plusOne(nextFirst)];
     }
 
-    public Item removeFirst() {
+    public T removeFirst() {
         resize();
-        Item result = getFirst();
+        T result = getFirst();
         nextFirst = plusOne(nextFirst);
         items[nextFirst] = null;
         size--;
@@ -90,13 +90,13 @@ public class ArrayDeque<Item> {
 
     }
 
-    public Item getLast() {
+    public T getLast() {
         return items[minusOne(nextLast)];
     }
 
-    public Item removeLast() {
+    public T removeLast() {
         resize();
-        Item result = getLast();
+        T result = getLast();
         nextLast = minusOne(nextLast);
         items[nextLast] = null;
         size--;
@@ -104,7 +104,7 @@ public class ArrayDeque<Item> {
 
     }
 
-    public Item get(int i) {
+    public T get(int i) {
         if (i < 0 || i >= size) {
             return null;
         }

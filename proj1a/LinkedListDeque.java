@@ -1,5 +1,5 @@
 public class LinkedListDeque <T> {
-    public class IntNode {
+    private class IntNode {
         public T item;
         public IntNode next;
         public IntNode prev;
@@ -12,7 +12,7 @@ public class LinkedListDeque <T> {
     }
 
     private IntNode sentinel;
-    public int size;
+    private int size;
 
     /** create a empty SLlist. */
     public LinkedListDeque() {
@@ -115,24 +115,24 @@ public class LinkedListDeque <T> {
 
     }
 
-    public T traverse(IntNode n,int i) {
+    private T traverse(IntNode n,int i) {
         if (i == 0) {
             return n.item;
         } else {
             return traverse(n.next, i - 1);
         }
     }
-    
 
-    public static void main(String[] args) {
-        LinkedListDeque<Integer> L = new LinkedListDeque<>();
-        L.addFirst(10);
-        L.addFirst(5);
-        L.addLast(13);
-        L.addLast(18);
-        L.removeFirst();
-        System.out.println(L.removeLast());
-        System.out.println(L.get(2));
 
-    }
+//    public static void main(String[] args) {
+//        LinkedListDeque<Integer> L = new LinkedListDeque<>();
+//        L.addFirst(10);
+//        L.addFirst(5);
+//        L.addLast(13);
+//        L.addLast(18);
+//        L.removeFirst();
+//        System.out.println(L.removeLast());
+//        System.out.println(L.get(2));
+//
+//    }
 }
